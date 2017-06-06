@@ -2,3 +2,29 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+h1 {
+  font-size: 50px;
+  font-family: montserra;
+  text-align: center;
+}
+
+.home-img {
+  height: auto;
+  max-width: 100%;
+  padding: 30px 30px 10px 40px;
+  text-color: white;
+}
+
+.home-btn {
+  font-size: 20px;
+}
+
+.disabled:hover {
+  color: white;
+  background: #D23333;
+  border-color: #D23333;
+}
+
+h2 {
+  text-align:left;
+}
