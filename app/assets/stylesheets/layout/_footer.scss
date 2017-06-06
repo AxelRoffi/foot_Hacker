@@ -1,8 +1,7 @@
 // Your footer style
 #footer {
-  background: white;
-  padding: 30px 0;
-  color: #767676;
+  background: #232528;
+  color: #fafffd;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -16,7 +15,7 @@
   margin-top: 10px;
 }
 #footer a {
-  color: #767676;
+  color: #fafffd;
   font-size: 30px;
   letter-spacing: 20px;
   transition: color 0.5s ease;
@@ -31,4 +30,8 @@
   width: 90%;
   padding-top: 40px;
   align: center;
+}
+#list-inline {
+  color: white;
+
 }
