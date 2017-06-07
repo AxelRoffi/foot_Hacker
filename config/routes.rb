@@ -9,9 +9,7 @@ Rails.application.routes.draw do
 
   resources :games, only: [:index, :show]
 
-  resource :profile, only: [:edit, :update]
-
-
+  resource :profiles, only: [:edit, :update]
 end
 
 
