@@ -1,2 +1,18 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"><div class="card"><%= "Ligue_1 25 journée " %></div></div>
+    <div class="col-sm-3"><div class="card"><%= "PSG Parc des Princes" %></div></div>
+    <div class="col-sm-3"><div class="card"><%= "Samedi 18 mars 2017 21H " %></div></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3"><div class="card_1"><%= @home.name %></div></div>
+    <div class="col-sm-3"><div class="card_1"><%= "" %></div></div>
+    <div class="col-sm-3"><div class="card_1"><%= @visitor.name %></div></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3"><div class="card_2"><%= image_tag "OL.png", class: "img-responsive" %></div></div>
+    <div class="col-sm-3"><div class="card_3"><%= "2" %></div></div>
+    <div class="col-sm-3"><div class="card_3"><%= "4" %></div></div>
+    <div class="col-sm-3"><div class="card_2"><%= image_tag "PSG.png" , class: "img-responsive"%></div></div>
+  </div>
+</div>
