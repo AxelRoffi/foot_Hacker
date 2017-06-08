@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  belongs_to :team
+  belongs_to :team, required: false
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
