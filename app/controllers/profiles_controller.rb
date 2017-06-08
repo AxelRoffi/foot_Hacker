@@ -5,5 +5,11 @@ class ProfilesController < ApplicationController
   end
 
   def update
+ @games = Game.all
   end
+
+  def index
+    @games = Game.all
+  end
+
 end

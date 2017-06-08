@@ -43,16 +43,4 @@ fixtures["data"]["fixtures"]["data"].each do |raw_fixture|
 
 end
 
-# iterate over hash
-# h.each do |key, value|
-#   puts key
-#   value.each do |k,v|
-#     puts k
-#     puts v
-#   end
-# end
 
-
-# hash.each do |key, array|
-#   puts "#{key}-----"
-#   puts array
