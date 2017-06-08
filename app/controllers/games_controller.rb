@@ -4,6 +4,8 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id])
+    # @game = Game.find(params[:id])
+    @visitor = Team.all.sample
+    @home = Team.all.sample
   end
 end

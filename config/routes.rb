@@ -7,9 +7,14 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :games, only: [:index, :show]
+  resources :games, only: [:show] do
+    resource :rating, only: [:create, :destroy, :update]
+  end
+
+  get "games", to: "games#index"
 
   resource :profiles, only: [:edit, :update]
+
 end
 
 
