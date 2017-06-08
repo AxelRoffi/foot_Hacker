@@ -1,82 +1,19 @@
-
-
-
-<div class="container">
-    <h1>Edit Profile</h1>
-    <hr>
-  <div class="row">
-      <!-- left column -->
-      <div class="col-md-3">
-        <div class="text-center">
-          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-          <h6>Upload a different photo...</h6>
-
-          <input type="file" class="form-control">
-        </div>
-      </div>
-
-        <h3>Personal info</h3>
-
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="col-lg-3 control-label">First name:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Last name:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
-            </div>
-          </div>
-
-
-          <div class="form-group">
-              <label for="col-lg-3 control-label">Football Team:</label>
-              <select name="action" id="action" class="form-control">
-                <option value="Paris Saint-Germain">Paris Saint-Germain</option>
-                <option value="Olympique de Marseille">Olympique de Marseille</option>
-                <option value="Olympique Lyonnais">Olympique Lyonnais</option>
-                <option value="AS Monaco">AS Monaco</option>
-            </select>
-          </div>
-
-
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Username:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="text" value="">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" value="">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" value="">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="">
-              <span></span>
-              <input type="reset" class="btn btn-default" value="">
-            </div>
-          </div>
-        </form>
-      </div>
-  </div>
+<div class="container height-inherit overflow-auto ">
+  <h1 class="text-center">Edit Profile</h1>
+  <h3>Personal info</h3>
+  <%= simple_form_for @user, url: profiles_path(id: @user.id), method: :patch do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :team, collection: @teams %>
+    <%= f.input :email, autofocus: true %>
+    <%= f.input :password,
+          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+    <%= f.input :confirm_password %>
+    <%= f.button :submit, "Update" %>
+  <% end %>
 </div>
-<hr>
+
+
+
+
