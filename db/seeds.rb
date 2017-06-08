@@ -24,20 +24,35 @@ teams["data"].each do |raw_team|
   logo_path = raw_team["logo_path"]
   api_id = raw_team["id"]
 
-  Team.create(name: name, logo_path: logo_path, api_id: id)
+  Team.create(name: name, logo_path: logo_path, api_id: api_id)
 end
 
-fixtures["data"].each do |raw_fixture|
+fixtures["data"]["fixtures"]["data"].each do |raw_fixture|
   localteam = raw_fixture["localteam_id"]
-  visitorteam = raw_fixture ["visitorteam_id"]
+
+  visitorteam = raw_fixture["visitorteam_id"]
 
 
-  date = raw_fixture ["date"]
+  date = Date.parse raw_fixture["time"]["starting_at"]["date"]
 
-  lteam = Team.find_by(api_id: localteam)
-  vteam = Team.find_by(api_id: visitorteam)
 
-  Game.create(local_team: lteam, visitor_team: vteam, date: date )
+  lteam = Team.find_by(api_id: localteam).id
+  vteam = Team.find_by(api_id: visitorteam).id
+
+  Game.create(local_team_id: lteam, visitor_team_id: vteam, datetime: date )
 
 end
 
+# iterate over hash
+# h.each do |key, value|
+#   puts key
+#   value.each do |k,v|
+#     puts k
+#     puts v
+#   end
+# end
+
+
+# hash.each do |key, array|
+#   puts "#{key}-----"
+#   puts array
