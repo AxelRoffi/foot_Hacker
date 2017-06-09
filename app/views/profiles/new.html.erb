@@ -1,1 +1,6 @@
-COUCOU
+<h1>CHOOSE YOUR FOOTBALL TEAM, PLEASE</h1>
+
+<%= simple_form_for [@profile] do |f| %>
+  <%= f.input :team_id, collection: Team.all %>
+  <%= f.submit "Choose this team", class: "btn btn-primary" %>
+<% end %>
