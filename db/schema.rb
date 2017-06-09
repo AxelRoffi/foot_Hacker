@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608131129) do
+ActiveRecord::Schema.define(version: 20170609095744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20170608131129) do
     t.datetime "updated_at", null: false
     t.integer "visitor_team_id"
     t.integer "local_team_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "team_id"
+    t.index ["team_id"], name: "index_profiles_on_team_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -70,24 +79,18 @@ ActiveRecord::Schema.define(version: 20170608131129) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "rails"
-    t.string "g"
-    t.string "migration"
     t.string "AddOmniauthToUsers"
     t.string "provider"
     t.string "uid"
     t.string "facebook_picture_url"
-    t.string "first_name"
-    t.string "last_name"
     t.string "token"
     t.datetime "token_expiry"
     t.boolean "admin", default: false, null: false
-    t.bigint "team_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["team_id"], name: "index_users_on_team_id"
   end
 
+  add_foreign_key "profiles", "teams"
   add_foreign_key "ratings", "games"
   add_foreign_key "ratings", "teams"
   add_foreign_key "ratings", "users"
