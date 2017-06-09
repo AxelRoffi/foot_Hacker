@@ -1,34 +1,36 @@
 class ProfilesController < ApplicationController
-  def edit
-    @profile = Profile.find(params[:id])
-    @teams = Team.all.map { |team| [team.name, team.id] }
-  end
+  before_action :teams_collection, only: [:new, :create]
 
-  def update
-
-    @user = User.all
-
-    # redirect_to #show
+  def show
+    @user = Profile.find(params[:id])
   end
 
   def new
-    @user = User.new
-    user.save
+    @profile = Profile.new
   end
 
   def create
-    @user = User.new(profiles_params)
+    @profile = Profile.new(profiles_params)
+    @profile.user = current_user
+    @profile.first_name = current_user.first_name
+    @profile.last_name = current_user.last_name
+    @profile.save
   end
 
-  def show
-    @team = Team.find(params[:id])
-    @user = User.new
+  def edit
+    @profile = User.find(params[:id])
+  end
+
+  def update
   end
 
   private
 
   def profiles_params
-    params.require(:profiles).permit(:email, :team)
+    params.require(:profiles).permit(:team)
   end
 
+  def teams_collection
+    @teams = Team.all.map { |team| [team.name, team.id] }
+  end
 end
