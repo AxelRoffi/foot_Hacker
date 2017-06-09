@@ -4,6 +4,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   belongs_to :team, required: false
+  has_one :profile
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)

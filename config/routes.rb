@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get "games", to: "games#index"
 
-  resource :profiles, only: [:edit, :update]
+  resource :profiles, only: [:edit, :update, :new, :create, :show]
 
 end
 
