@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @games = Game.all
+    @user.update(profiles_params)
     # redirect_to #show
   end
 

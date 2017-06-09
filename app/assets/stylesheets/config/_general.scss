@@ -5,6 +5,14 @@ body {
   height:100%;
 }
 
+html {
+    overflow: hidden;
+}
+
+body {
+    overflow: auto;
+}
+
 .wrapper {
   min-height:100%;
   height:100%;
@@ -12,7 +20,7 @@ body {
 }
 
 .content-wrapper {
-  padding-bottom: 7em; /* Height of the footer element */
+  padding-bottom: 5em; /* Height of the footer element */
   height: calc(100% - 70px);
 }
 
