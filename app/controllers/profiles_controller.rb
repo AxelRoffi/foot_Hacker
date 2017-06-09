@@ -5,7 +5,9 @@ class ProfilesController < ApplicationController
   end
 
   def update
+
     @user = User.all
+
     # redirect_to #show
   end
 
