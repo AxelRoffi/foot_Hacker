@@ -5,11 +5,18 @@ class ProfilesController < ApplicationController
   end
 
   def update
- @games = Game.all
+    @games = Game.all
+    # redirect_to #show
   end
 
   def index
     @games = Game.all
+  end
+
+  private
+
+  def profiles_params
+
   end
 
 end
