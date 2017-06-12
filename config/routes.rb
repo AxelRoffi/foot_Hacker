@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { registrations: "registrations", omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'pages#home'
 
   resources :games, only: [:show] do
-    # collection do                       # collection => no restaurant id in URL
-    #   get '@team_id', to: "games#top"
+    collection do
+      get 'team_id', to: "games#team_id"
 
     resources :rating, only: [:create, :destroy, :update]
+    end
   end
 
   get "games", to: "games#index"

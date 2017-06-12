@@ -12,14 +12,15 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profiles_params)
-    @profile.user = current_user
-    @profile.first_name = current_user.first_name
-    @profile.last_name = current_user.last_name
-    @profile.save
+    # @profile.user = current_user
+    # # @profile.first_name = current_user.first_name
+    # # @profile.last_name = current_user.last_name
+    # @profile.team = current_user.team
+    # @profile.save
   end
 
   def edit
-
+    # @profile = Profile.find(params[:id])
   end
 
   def update
@@ -31,7 +32,7 @@ class ProfilesController < ApplicationController
   private
 
   def profiles_params
-    params.require(:profiles).permit(:team, :last_name, :first_name)
+    params.require(:profile).permit(:team_id,:last_name, :first_name)
   end
 
   def find_profiles
