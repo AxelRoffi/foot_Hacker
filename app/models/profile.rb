@@ -1,6 +1,4 @@
 class Profile < ApplicationRecord
   belongs_to :user
-
-  validates :team_id, presence: true
-
+  belongs_to :team, optional: true
 end

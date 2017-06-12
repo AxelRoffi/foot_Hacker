@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :games, only: [:show] do
     collection do
-      get 'team_id', to: "games#team_id"
+      get 'for_team', to: "games#for_team"
 
     resources :rating, only: [:create, :destroy, :update]
     end

@@ -9,9 +9,8 @@ class GamesController < ApplicationController
     @home = Team.all.sample
   end
 
-  def team_id
-    @games = Game.where(team_id: current_user.team) #(profile(team_id))
+  def for_team
+    @games = Game.where(local_team: current_user.team)
+                 .or(Game.where(visitor_team: current_user.team))
   end
-
-
 end
