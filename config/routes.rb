@@ -6,13 +6,19 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :games, only: [:show] do
-    resource :rating, only: [:create, :destroy, :update]
+    # collection do                       # collection => no restaurant id in URL
+    #   get '@team_id', to: "games#top"
+
+    resources :rating, only: [:create, :destroy, :update]
   end
 
   get "games", to: "games#index"
 
-  resource :profiles, only: [:edit, :update, :new, :create, :show]
+  resources :profiles, only: [:edit, :update, :new, :create, :show]
 
 end
 
 
+ # collection do                       # collection => no restaurant id in URL
+ #      get 'top', to: "restaurants#top"  # RestaurantsController#top
+ #    end

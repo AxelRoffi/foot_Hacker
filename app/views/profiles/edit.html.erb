@@ -1,15 +1,11 @@
 <div class="container height-inherit overflow-auto form-container ">
   <h1 class="text-center">Edit Profile</h1>
   <h3>Personal info</h3>
-  <%= simple_form_for @user, url: profiles_path(id: @user.id), method: :patch do |f| %>
+  <%= simple_form_for @profile do |f| %>
     <%= f.error_notification %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
-    <%= f.input :team, collection: @teams %>
-    <%= f.input :email, autofocus: true %>
-    <%= f.input :password,
-          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :confirm_password %>
+    <%= f.input :team_id, collection: @teams %>
     <%= f.button :submit, "Update" %>
   <% end %>
 </div>
