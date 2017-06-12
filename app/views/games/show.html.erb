@@ -1,24 +1,25 @@
 <div class="container">
-<!--   <%= image_tag "Green.jpg"  %> -->
+  <div class="row bannerh">
   <div class="row">
-    <div class="col-sm-3"><div class="card"><%= "Ligue_1 25 journée " %></div></div>
-    <div class="col-sm-3"><div class="card"><%= "PSG Parc des Princes" %></div></div>
-    <div class="col-sm-3"><div class="card"><%= "Samedi 18 mars 2017 21H " %></div></div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3"><div class="card_1"><%= @home.name %></div></div>
-    <div class="col-sm-3"><div class="card_1"><%= "" %></div></div>
-    <div class="col-sm-3"><div class="card_1"><%= @visitor.name %></div></div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3"><div class="card_2"><%= image_tag "OL.png", class: "img-responsive" %></div></div>
-    <div class="col-sm-3"><div class="card_3"><%= "2" %></div></div>
-    <div class="col-sm-3"><div class="card_3"><%= "4" %></div></div>
-    <div class="col-sm-3"><div class="card_2"><%= image_tag "PSG.png" , class: "img-responsive"%></div></div>
-  </div>
-  <div class="row">
-<!--     <div class="col-sm-3"><div class="card_1"><%= @goal.name %></div></div>
-    <div class="col-sm-3"><div class="card_1"><%= "" %></div></div>
-    <div class="col-sm-3"><div class="card_1"><%= @goal.name %></div></div> -->
+      <div class="col-sm-4"><div class="text-left"><%= "Ligue 1 25 journée " %></div></div>
+      <div class="col-sm-4"><div class="text-center"><%= "PSG Parc des Princes" %></div></div>
+      <div class="col-sm-4"><div class="text-right"><%= "Samedi 18 mars 2017 21H " %></div></div>
+    </div></div>
+  <div class="row background">
+    <div class="row team-names">
+      <div class="col-sm-6"><div class="text-left"><%= @home.name %></div></div>
+      <div class="col-sm-6"><div class="text-right"><%= @visitor.name %></div></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3"><div class="card_2"><%= image_tag "OL.png", class: "img-responsive" %></div></div>
+      <div class="col-sm-3"><div class="card_3 text-center"><%= "2" %></div></div>
+      <div class="col-sm-3"><div class="card_5 text-center"><%= "4" %></div></div>
+      <div class="col-sm-3"><div class="card_2"><%= image_tag "PSG.png", class: "img-responsive"%></div></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3"><div class="card_4"><%= "Lacazette" %></div></div>
+      <div class="col-sm-3"><div class="card_4"><%= "" %></div></div>
+      <div class="col-sm-3"><div class="card_4"><%= "Cavani" %></div></div>
+    </div>
   </div>
 </div>
