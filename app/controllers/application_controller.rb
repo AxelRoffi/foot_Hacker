@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     for_team_games_path(resource.team)
   end
 
-  # def after_sign_up_path_for(resource_or_scope)
-  #    edit_profile_path
-  # end
+  def after_sign_up_path_for(resource_or_scope)
+     edit_profile_path
+  end
 end
