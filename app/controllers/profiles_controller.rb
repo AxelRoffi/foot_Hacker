@@ -1,9 +1,7 @@
 class ProfilesController < ApplicationController
-<<<<<<< HEAD
+
   before_action :teams_collection, only: [:edit, :new]
-=======
-  before_action :teams_collection, only: [:edit]
->>>>>>> a17ee2ec81e08d16d62ff248fcdb33047003799f
+
   before_action :find_profiles, only: [:edit, :update, :show]
 
   def show
