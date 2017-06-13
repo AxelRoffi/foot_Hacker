@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   belongs_to :team, required: false
   has_one :profile
+  after_create :build_profile
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -25,6 +26,11 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+
+  def build_profile
+    Profile.create(user: self) # Associations must be defined correctly for this syntax, avoids using ID's directly.
   end
 end
 

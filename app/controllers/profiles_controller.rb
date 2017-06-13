@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :teams_collection, only: [:new, :create]
+  before_action :teams_collection, only: [:edit, :new]
   before_action :find_profiles, only: [:edit, :update, :show]
 
   def show
@@ -13,9 +13,10 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profiles_params)
     @profile.user = current_user
-    @profile.first_name = current_user.first_name
-    @profile.last_name = current_user.last_name
+    # @profile.first_name = current_user.first_name
+    # @profile.last_name = current_user.last_name
     @profile.save
+    redirect_to for_team_games_path
   end
 
   def edit
@@ -25,13 +26,13 @@ class ProfilesController < ApplicationController
   def update
     @profile.update(profiles_params)
     flash[:notice] = "You're so Smart. You Updated your profile"
-    redirect_to profile_path(@profile)
+    redirect_to for_team_games_path
   end
 
   private
 
   def profiles_params
-    params.require(:profiles).permit(:team, :last_name, :first_name)
+    params.require(:profile).permit(:team, :last_name, :first_name)
   end
 
   def find_profiles
