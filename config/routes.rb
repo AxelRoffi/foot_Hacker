@@ -1,10 +1,4 @@
 
-  devise_for :users, controllers: { registrations: "registrations", omniauth_callbacks: 'users/omniauth_callbacks' }
-
- # collection do                       # collection => no restaurant id in URL
- #      get 'top', to: "restaurants#top"  # RestaurantsController#top
- #    end
-
 
 
 
