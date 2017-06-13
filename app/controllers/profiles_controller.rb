@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+
   before_action :teams_collection, only: [:edit, :new]
   before_action :find_profiles, only: [:edit, :update, :show]
 

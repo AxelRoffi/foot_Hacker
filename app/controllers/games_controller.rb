@@ -10,6 +10,10 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
 
+  def show
+    @game = Game.find(params[:id])
+  end
+
    def team_id
      @games = Game.where(team_id: current_user.team) #(profile(team_id))
    end
