@@ -1,19 +1,13 @@
 class GamesController < ApplicationController
   def index
-     @games = Game.all
-  end
-
-  def show
-    # @game = Game.find(params[:id])
+    @games = Game.where(local_team: current_user.profile.team)
+                  .or(Game.where(visitor_team: current_user.profile.team))
     @visitor = Team.all.sample
     @home = Team.all.sample
   end
 
-
-
-  def for_team
-    @games = Game.where(local_team: current_user.profile.team)
-                  .or(Game.where(visitor_team: current_user.profile.team))
+  def show
+    @game = Game.find(params[:id])
   end
 
    def team_id

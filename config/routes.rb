@@ -1,10 +1,4 @@
-
-
-
-
-
-
- Rails.application.routes.draw do
+Rails.application.routes.draw do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, controllers: { registrations: "registrations", omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -14,8 +8,6 @@
   resources :games, only: [:show] do
 
   collection do
-      get 'for_team', to: "games#for_team"
-
     resources :rating, only: [:create, :destroy, :update]
     end
 

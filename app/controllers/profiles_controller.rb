@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profiles_params)
     @profile.user = current_user
     @profile.save
-    redirect_to for_team_games_path
+    redirect_to games_path
   end
 
   def edit
@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
   def update
     @profile.update(profiles_params)
     flash[:notice] = "You're so Smart. You Updated your profile"
-    redirect_to for_team_games_path
+    redirect_to games_path
   end
 
   private
