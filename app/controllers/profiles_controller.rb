@@ -1,5 +1,9 @@
 class ProfilesController < ApplicationController
+<<<<<<< HEAD
   before_action :teams_collection, only: [:edit, :new]
+=======
+  before_action :teams_collection, only: [:edit]
+>>>>>>> a17ee2ec81e08d16d62ff248fcdb33047003799f
   before_action :find_profiles, only: [:edit, :update, :show]
 
   def show
@@ -13,13 +17,12 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profiles_params)
     @profile.user = current_user
-    # @profile.first_name = current_user.first_name
-    # @profile.last_name = current_user.last_name
     @profile.save
     redirect_to for_team_games_path
   end
 
   def edit
+    # @profile = Profile.find(params[:id])
 
   end
 
@@ -42,5 +45,4 @@ class ProfilesController < ApplicationController
   def teams_collection
     @teams = Team.all.map { |team| [team.name, team.id] }
   end
-
 end
