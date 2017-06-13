@@ -32,14 +32,17 @@ fixtures["data"]["fixtures"]["data"].each do |raw_fixture|
 
   visitorteam = raw_fixture["visitorteam_id"]
 
-
   date = Date.parse raw_fixture["time"]["starting_at"]["date"]
 
 
   lteam = Team.find_by(api_id: localteam).id
   vteam = Team.find_by(api_id: visitorteam).id
 
-  Game.create(local_team_id: lteam, visitor_team_id: vteam, datetime: date )
+  score_lteam = raw_fixture["scores"]["localteam_score"]
+  score_vteam = raw_fixture["scores"]["visitorteam_score"]
+
+
+  Game.create(local_team_id: lteam, visitor_team_id: vteam, datetime: date, local_team_score: score_lteam, visitor_team_score: score_vteam)
 
 end
 
