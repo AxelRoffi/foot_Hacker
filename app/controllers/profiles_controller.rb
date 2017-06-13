@@ -32,7 +32,7 @@ class ProfilesController < ApplicationController
   private
 
   def profiles_params
-    params.require(:profile).permit(:team, :last_name, :first_name)
+    params.require(:profile).permit(:team_id, :last_name, :first_name)
   end
 
   def find_profiles
