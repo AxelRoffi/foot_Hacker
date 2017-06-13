@@ -1,14 +1,4 @@
 
- #  devise_for :users, controllers: { registrations: "registrations", omniauth_callbacks: 'users/omniauth_callbacks' }
-
- # # collection do                       # collection => no restaurant id in URL
- # #      get 'top', to: "restaurants#top"  # RestaurantsController#top
- # #    end
-
-
-
-
-
 
  Rails.application.routes.draw do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -20,8 +10,6 @@
   resources :games, only: [:show] do
 
   collection do
-      get 'for_team', to: "games#for_team"
-
     resources :rating, only: [:create, :destroy, :update]
     end
 

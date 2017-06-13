@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
+    @games = Game.where(local_team: current_user.profile.team)
+                  .or(Game.where(visitor_team: current_user.profile.team))
     @visitor = Team.all.sample
     @home = Team.all.sample
   end
@@ -9,11 +10,8 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
 
-
-
-  def for_team
-    @games = Game.where(local_team: current_user.profile.team)
-                  .or(Game.where(visitor_team: current_user.profile.team))
+  def show
+    @game = Game.find(params[:id])
   end
 
    def team_id
