@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   resources :games, only: [:show] do
     collection do
       get 'for_team', to: "games#for_team"
-
-    resources :rating, only: [:create, :destroy, :update]
     end
+    resources :rating, only: [:create, :destroy, :update]
+    
   end
 
   get "games", to: "games#index"
@@ -18,8 +18,3 @@ Rails.application.routes.draw do
   resources :profiles, only: [:edit, :update, :new, :create, :show]
 
 end
-
-
- # collection do                       # collection => no restaurant id in URL
- #      get 'top', to: "restaurants#top"  # RestaurantsController#top
- #    end

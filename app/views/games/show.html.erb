@@ -1,25 +1,74 @@
+<h2>Ligue 1</h2>
 <div class="container">
   <div class="row bannerh">
-  <div class="row">
-      <div class="col-sm-4"><div class="text-left"><%= "Ligue 1 25 journée " %></div></div>
-      <div class="col-sm-4"><div class="text-center"><%= "PSG Parc des Princes" %></div></div>
-      <div class="col-sm-4"><div class="text-right"><%= "Samedi 18 mars 2017 21H " %></div></div>
-    </div></div>
-  <div class="row background">
-    <div class="row team-names">
-      <div class="col-sm-6"><div class="text-left"><%= @home.name %></div></div>
-      <div class="col-sm-6"><div class="text-right"><%= @visitor.name %></div></div>
+    <div class="col-sm-4">
+      <div class="text-left"><%= "Ligue 1, 25 journée " %>
+      </div>
     </div>
-    <div class="row">
-      <div class="col-sm-3"><div class="card_2"><%= image_tag "OL.png", class: "img-responsive" %></div></div>
-      <div class="col-sm-3"><div class="card_3 text-center"><%= "2" %></div></div>
-      <div class="col-sm-3"><div class="card_5 text-center"><%= "4" %></div></div>
-      <div class="col-sm-3"><div class="card_2"><%= image_tag "PSG.png", class: "img-responsive"%></div></div>
+    <div class="col-sm-4">
+      <div class="text-center"><%= "PSG Parc des Princes" %>
+      </div>
     </div>
-    <div class="row">
-      <div class="col-sm-3"><div class="card_4"><%= "Lacazette" %></div></div>
-      <div class="col-sm-3"><div class="card_4"><%= "" %></div></div>
-      <div class="col-sm-3"><div class="card_4"><%= "Cavani" %></div></div>
+    <div class="col-sm-4">
+      <div class="text-right"><%= "Samedi 18 mars 2017 21H " %>
+      </div>
     </div>
   </div>
+
+
+  <div class="row background">
+    <div class="margintop">
+
+      <div class="row flextry spaced">
+        <div class="col-sm-4">
+          <div class="card_2 text-center flexed">
+            <ul>
+              <li>
+                <div class="police">
+                  <%= @visitor.name %>
+                </div>
+              </li>
+              <li>
+                <%= image_tag "OL.png" %>
+              </li>
+              <li>
+                <div class="card_4 text-center">
+                  <%= "Lacazette" %>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+          <div class="flextry flexed score margintop_1">2</div>
+          <div class="flextry flexed score margintop_1">4</div>
+
+
+        <div class="col-sm-4">
+          <div class="card_2 text-center flexed">
+            <ul>
+              <li>
+                <div class="police">
+                  <%= @home.name %>
+                </div>
+              </li>
+              <li>
+               <%= image_tag "PSG.png" %>
+             </li>
+             <li>
+              <div class="card_4 text-center">
+                <%= "Cavani" %>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
 </div>
+</div>
+
+</div>
+
