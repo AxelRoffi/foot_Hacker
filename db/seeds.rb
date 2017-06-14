@@ -1,3 +1,5 @@
+Game.destroy_all
+Player.destroy_all
 Team.destroy_all
 
 # TEAMS
@@ -10,6 +12,11 @@ teams = JSON.parse(serialized_teams)
 fixtures_file_path = "db/external_data/fixtures_france_season_765_2016_2017.json"
 serialized_fixtures = File.read(fixtures_file_path)
 fixtures = JSON.parse(serialized_fixtures)
+
+#Players (Players in API)
+players_file_path = "db/external_data/fixture_lineup_france_2016_2017.json"
+serialized_players = File.read(players_file_path)
+players = JSON.parse(serialized_players)
 # # ixtures_data_array = fixtures["data"]["fixtures"]["data"].map { |fixture_hash| fixture_hash.slice('id', 'localteam_id', 'visitorteam_id', 'time') }
 # datas = []
 # localteam = fixtures["data"]["fixtures"]["data"][0]["localteam_id"]
@@ -44,7 +51,22 @@ fixtures["data"]["fixtures"]["data"].each do |raw_fixture|
 
   Game.create(local_team_id: lteam, visitor_team_id: vteam, datetime: date, local_team_score: score_lteam, visitor_team_score: score_vteam)
 
+
 end
 
+games = players["data"]["fixtures"]["data"]
+
+games.each do |game|
+  game_appearances = game["lineup"]["data"]
+
+  game_appearances.each do |player|
+    team = Team.find_by(api_id: player["team_id"])
+    Player.create(
+      last_name: player["player_name"],
+      api_id: player["player_id"],
+      team: team
+    ) unless Player.find_by(api_id: player["player_id"])
+  end
+end
 
 
