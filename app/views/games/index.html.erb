@@ -1,5 +1,8 @@
 <h2><center>Ligue 1</center></h2>
+<div class="game-cards">
+
 <% @games.each do |g| %>
+<%= link_to game_path(g) do %>
 <div class="container">
   <div class="row bannerh">
     <div class="col-sm-4">
@@ -69,8 +72,11 @@
   </div>
 </div>
 </div>
-<br><br><br>
-
 <% end %>
+
+<br><br><br>
+<% end %>
+</div>
+
 
 

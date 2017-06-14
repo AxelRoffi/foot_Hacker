@@ -1,3 +1,14 @@
+.game-cards a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+.items {
+  display:flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
 .background {
   background-image: image-url("Green.jpg");
   background-size: 100% 100%;
@@ -106,9 +117,7 @@ body {
 }
 
 a {
-
     text-decoration: none;
-
 }
 
 .card {
@@ -126,11 +135,12 @@ a {
     -moz-transition:    all 0.7s ease-in-out;
     -o-transition:      all 0.7s ease-in-out;
     -ms-transition:     all 0.7s ease-in-out;
+    margin-bottom: 50px;
 }
 .card.active {
     height:490px;
 }
-.banner {
+.banner_1 {
     z-index: 2;
     position: relative;
     margin-top: -154px;
@@ -148,7 +158,6 @@ a {
 
 .banner.active {
     height: 0;
-
 }
 
 .photo {
@@ -269,83 +278,6 @@ button.contact:focus {
 .social-media-banner a i:hover {
     color:#979da8;
 }
-
-.email-form {
-    height: 0;
-    overflow: hidden;
-/*    background-color: #C7D0E1;*/
-    width: 300px;
-     z-index:-1;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition:    all 0.5s ease-in-out;
-    -o-transition:      all 0.5s ease-in-out;
-    -ms-transition:     all 0.5s ease-in-out;
-     transition: all 0.5s ease-in-out;
-}
-
-.email-form.active {
-    height: 310px;
-    z-index: 3;
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition:    all 1s ease-in-out;
-    -o-transition:      all 1s ease-in-out;
-    -ms-transition:     all 1s ease-in-out;
-     transition: all 1s ease-in-out;
-}
-
-.email-form input {
-    width: 200px;
-    text-transform: capitalize;
-/*    background-color: #a4acbc;*/
-    margin: 0 auto;
-    font-family: inherit;
-    border: 1px solid #dadee5;
-/*    border: 1px solid black;*/
-    margin-top: 35px;
-    height: 30px;
-    display: block;
-        -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition:    all 0.2s ease-in-out;
-    -o-transition:      all 0.2s ease-in-out;
-    -ms-transition:     all 0.2s ease-in-out;
-}
-.email-form input:focus,.email-form textarea:focus {
-/*    border: none;*/
-    border: 1px solid grey;
-    outline: none;
-
-}
-::-webkit-input-placeholder {
- font-size: 12px;
- text-transform: uppercase;
- text-align: center;
-}
-
-.email-form textarea {
-    width: 200px;
-    text-transform: capitalize;
-    background-color: white;
-    margin: 0 auto;
-    display: block;
-    margin-top:40px;
-    border: 1px solid #dadee5;
-    font-family: inherit;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition:    all 0.3s ease-in-out;
-    -o-transition:      all 0.3s ease-in-out;
-    -ms-transition:     all 0.3s ease-in-out;
-}
-
-.email-form button {
-    margin-top: 60px;
-}
-
-
-
-
-
-
-
 
 
 
