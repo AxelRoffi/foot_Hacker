@@ -8,11 +8,16 @@ class GamesController < ApplicationController
   end
 
   def show
-    @players = Player.find(params[:id])
+    @game = Game.find(params[:id].to_i)
+
+    @local_team_players = @game.appearances.select {|x| x.team_id == @game.local_team_id}
+    @visitor_team_players = @game.appearances.select {|x| x.team_id == @game.visitor_team_id}
+    @rating = Rating.new
   end
 
    def team_id
      @games = Game.where(team_id: current_user.team) #(profile(team_id))
    end
+
 
 end

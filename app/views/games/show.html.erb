@@ -1,4 +1,16 @@
 
+<ul>
+<% @local_team_players.each do |lplayer| %>
+     <li> <%= lplayer.player.last_name%> </li>
+ <% end %>
+</ul>
+
+
+ <% @visitor_team_players.each do |vplayer| %>
+       <%= vplayer.player.last_name %>
+  <% end %>
+
+
 
 <div class="container">
 <div class="col-lg-12">
@@ -80,3 +92,4 @@
   </div>
 </div>
 </section>
+

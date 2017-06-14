@@ -1,3 +1,4 @@
+Appearance.destroy_all
 Game.destroy_all
 Player.destroy_all
 Team.destroy_all
@@ -34,38 +35,33 @@ teams["data"].each do |raw_team|
   Team.create(name: name, logo_path: logo_path, api_id: api_id)
 end
 
-fixtures["data"]["fixtures"]["data"].each do |raw_fixture|
-  localteam = raw_fixture["localteam_id"]
-
-  visitorteam = raw_fixture["visitorteam_id"]
-
-  date = Date.parse raw_fixture["time"]["starting_at"]["date"]
-
-
-  lteam = Team.find_by(api_id: localteam).id
-  vteam = Team.find_by(api_id: visitorteam).id
-
-  score_lteam = raw_fixture["scores"]["localteam_score"]
-  score_vteam = raw_fixture["scores"]["visitorteam_score"]
-
-
-  Game.create(local_team_id: lteam, visitor_team_id: vteam, datetime: date, local_team_score: score_lteam, visitor_team_score: score_vteam)
-
-
-end
-
 games = players["data"]["fixtures"]["data"]
 
 games.each do |game|
   game_appearances = game["lineup"]["data"]
 
-  game_appearances.each do |player|
-    team = Team.find_by(api_id: player["team_id"])
-    Player.create(
-      last_name: player["player_name"],
-      api_id: player["player_id"],
+  localteam = game["localteam_id"]
+
+  visitorteam = game["visitorteam_id"]
+
+  date = Date.parse game["time"]["starting_at"]["date"]
+
+  lteam = Team.find_by(api_id: localteam).id
+  vteam = Team.find_by(api_id: visitorteam).id
+
+  score_lteam = game["scores"]["localteam_score"]
+  score_vteam = game["scores"]["visitorteam_score"]
+
+  game = Game.create(local_team_id: lteam, visitor_team_id: vteam, datetime: date, local_team_score: score_lteam, visitor_team_score: score_vteam)
+
+  game_appearances.each do |appearance|
+    team = Team.find_by(api_id: appearance["team_id"])
+    player = Player.find_by(api_id: appearance["player_id"]) || Player.create(
+      last_name: appearance["player_name"],
+      api_id: appearance["player_id"],
       team: team
-    ) unless Player.find_by(api_id: player["player_id"])
+    )
+    Appearance.create(team: team, player: player, game: game, position: appearance["position"])
   end
 end
 
