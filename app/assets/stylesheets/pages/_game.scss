@@ -118,7 +118,6 @@ body {
 
 a {
     text-decoration: none;
-
 }
 
 .card {
@@ -280,75 +279,6 @@ button.contact:focus {
     color:#979da8;
 }
 
-.email-form {
-    height: 0;
-    overflow: hidden;
-/*    background-color: #C7D0E1;*/
-    width: 300px;
-     z-index:-1;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition:    all 0.5s ease-in-out;
-    -o-transition:      all 0.5s ease-in-out;
-    -ms-transition:     all 0.5s ease-in-out;
-     transition: all 0.5s ease-in-out;
-}
-
-.email-form.active {
-    height: 310px;
-    z-index: 3;
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition:    all 1s ease-in-out;
-    -o-transition:      all 1s ease-in-out;
-    -ms-transition:     all 1s ease-in-out;
-     transition: all 1s ease-in-out;
-}
-
-.email-form input {
-    width: 200px;
-    text-transform: capitalize;
-/*    background-color: #a4acbc;*/
-    margin: 0 auto;
-    font-family: inherit;
-    border: 1px solid #dadee5;
-/*    border: 1px solid black;*/
-    margin-top: 35px;
-    height: 30px;
-    display: block;
-        -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition:    all 0.2s ease-in-out;
-    -o-transition:      all 0.2s ease-in-out;
-    -ms-transition:     all 0.2s ease-in-out;
-}
-.email-form input:focus,.email-form textarea:focus {
-/*    border: none;*/
-    border: 1px solid grey;
-    outline: none;
-
-}
-::-webkit-input-placeholder {
- font-size: 12px;
- text-transform: uppercase;
- text-align: center;
-}
-
-.email-form textarea {
-    width: 200px;
-    text-transform: capitalize;
-    background-color: white;
-    margin: 0 auto;
-    display: block;
-    margin-top:40px;
-    border: 1px solid #dadee5;
-    font-family: inherit;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition:    all 0.3s ease-in-out;
-    -o-transition:      all 0.3s ease-in-out;
-    -ms-transition:     all 0.3s ease-in-out;
-}
-
-.email-form button {
-    margin-top: 60px;
-}
 
 
 
