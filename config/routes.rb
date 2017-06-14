@@ -5,12 +5,9 @@
 
   root to: 'pages#home'
   resources :profiles, only: [:edit, :update, :new, :create, :show]
+
   resources :games, only: [:show] do
-
-  collection do
     resources :rating, only: [:create, :destroy, :update]
-  end
-
   end
 
   get "games", to: "games#index"

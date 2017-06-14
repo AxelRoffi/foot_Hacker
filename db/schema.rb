@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614113814) do
+ActiveRecord::Schema.define(version: 20170614150542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,12 +75,12 @@ ActiveRecord::Schema.define(version: 20170614113814) do
   create_table "ratings", force: :cascade do |t|
     t.integer "score"
     t.bigint "game_id"
-    t.bigint "team_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "player_id"
     t.index ["game_id"], name: "index_ratings_on_game_id"
-    t.index ["team_id"], name: "index_ratings_on_team_id"
+    t.index ["player_id"], name: "index_ratings_on_player_id"
     t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
@@ -121,6 +121,6 @@ ActiveRecord::Schema.define(version: 20170614113814) do
   add_foreign_key "appearances", "teams"
   add_foreign_key "players", "teams"
   add_foreign_key "ratings", "games"
-  add_foreign_key "ratings", "teams"
+  add_foreign_key "ratings", "players"
   add_foreign_key "ratings", "users"
 end

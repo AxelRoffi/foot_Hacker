@@ -12,6 +12,7 @@ class GamesController < ApplicationController
 
     @local_team_players = @game.appearances.select {|x| x.team_id == @game.local_team_id}
     @visitor_team_players = @game.appearances.select {|x| x.team_id == @game.visitor_team_id}
+    @rating = Rating.new
   end
 
    def team_id
