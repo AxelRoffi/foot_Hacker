@@ -1,0 +1,37 @@
+.playercard {
+  height: 450px;
+  width: 300px;
+  -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+  margin: 50px 0;
+}
+
+.banner_2 {
+  background-image: image-url("juv.jpg");
+  width:100%;
+  height:150px;
+  background-size: cover;
+}
+
+.photo_1 {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  background-image: image-url("paulo.jpg");
+  background-position: 50% 50%;
+  margin: 0 auto;
+  top: -75px;
+  position: relative;
+}
+
+.playertitle {
+  position: relative;
+  top: -55px;
+}
+
+.items {
+  display:flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}

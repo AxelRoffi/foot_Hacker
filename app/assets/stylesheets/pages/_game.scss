@@ -1,3 +1,14 @@
+.game-cards a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+.items {
+  display:flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
 .background {
   background-image: image-url("Green.jpg");
   background-size: 100% 100%;
@@ -106,7 +117,6 @@ body {
 }
 
 a {
-
     text-decoration: none;
 
 }
@@ -126,11 +136,12 @@ a {
     -moz-transition:    all 0.7s ease-in-out;
     -o-transition:      all 0.7s ease-in-out;
     -ms-transition:     all 0.7s ease-in-out;
+    margin-bottom: 50px;
 }
 .card.active {
     height:490px;
 }
-.banner {
+.banner_1 {
     z-index: 2;
     position: relative;
     margin-top: -154px;
@@ -148,7 +159,6 @@ a {
 
 .banner.active {
     height: 0;
-
 }
 
 .photo {
@@ -339,14 +349,6 @@ button.contact:focus {
 .email-form button {
     margin-top: 60px;
 }
-
-
-
-
-
-
-
-
 
 
 
