@@ -44,6 +44,10 @@ fixtures["data"]["fixtures"]["data"].each do |raw_fixture|
 
   Game.create(local_team_id: lteam, visitor_team_id: vteam, datetime: date, local_team_score: score_lteam, visitor_team_score: score_vteam)
 
+  lineup = raw_fixture["lineup"]["data"]
+  lineup.each do |play|
+    Player.create(...)
+  end
 end
 
 
