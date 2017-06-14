@@ -1,13 +1,5 @@
-<% @games.each do |g| %>
-  <%= g.visitor_team.name %>
-  <%= g.local_team.name %>
-<% end %>
-
-
-
-
 <h2><center>Ligue 1</center></h2>
-
+<% @games.each do |g| %>
 <div class="container">
   <div class="row bannerh">
     <div class="col-sm-4">
@@ -18,7 +10,7 @@
     <div class="text-center score_top">PSG Parc des Princes</div>
     </div>
     <div class="col-sm-4">
-      <div class="text-right"><%= "Samedi 18 mars 2017 21H " %>
+      <div class="text-right"><%= g.datetime %>
       </div>
     </div>
   </div>
@@ -33,11 +25,11 @@
             <ul>
               <li>
                 <div class="police">
-                  <%= @visitor.name %>
+                  <%= g.visitor_team.name %>
                 </div>
               </li>
               <li>
-                <%= image_tag "OL.png" %>
+                <%= image_tag "#{g.visitor_team.logo_path}" %>
               </li>
               <li>
                 <div class="card_4 text-center">
@@ -48,8 +40,8 @@
           </div>
         </div>
 
-          <div class="flextry flexed score margintop_1">2</div>
-          <div class="flextry flexed score margintop_1">4</div>
+          <div class="flextry flexed score margintop_1"><%= g.visitor_team_score %></div>
+          <div class="flextry flexed score margintop_1"><%= g.local_team_score%></div>
 
 
         <div class="col-sm-4">
@@ -57,11 +49,11 @@
             <ul>
               <li>
                 <div class="police">
-                  <%= @home.name %>
+                  <%= g.local_team.name %>
                 </div>
               </li>
               <li>
-               <%= image_tag "PSG.png" %>
+               <%= image_tag "#{g.local_team.logo_path}" %>
              </li>
              <li>
               <div class="card_4 text-center">
@@ -77,9 +69,8 @@
   </div>
 </div>
 </div>
+<br><br><br>
 
-</div>
-
-
+<% end %>
 
 

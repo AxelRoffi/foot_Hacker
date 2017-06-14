@@ -9,7 +9,7 @@
 
   collection do
     resources :rating, only: [:create, :destroy, :update]
-    end
+  end
 
   end
 

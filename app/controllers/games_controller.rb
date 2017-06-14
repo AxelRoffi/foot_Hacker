@@ -2,13 +2,9 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.where(local_team: current_user.profile.team)
-                  .or(Game.where(visitor_team: current_user.profile.team))
+                  .or(Game.where(visitor_team: current_user.profile.team)).order("datetime DESC")
     @visitor = Team.all.sample
     @home = Team.all.sample
-  end
-
-  def show
-    @game = Game.find(params[:id])
   end
 
   def show
