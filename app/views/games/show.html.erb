@@ -2,12 +2,14 @@
 <ul>
 <% @local_team_players.each do |lplayer| %>
      <li> <%= lplayer.player.last_name%> </li>
+     <li> <%= image_tag lplayer.player.image %> </li>
  <% end %>
 </ul>
 
 
  <% @visitor_team_players.each do |vplayer| %>
        <%= vplayer.player.last_name %>
+      <%= image_tag vplayer.player.image %>
   <% end %>
 
 
