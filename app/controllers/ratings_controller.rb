@@ -5,7 +5,6 @@ def create
   @rating = Rating.new(rating_params)
   @rating.game = @game
   @rating.user = current_user
-  byebug
   if @rating.save
     redirect_to game_path(@game)
   else
