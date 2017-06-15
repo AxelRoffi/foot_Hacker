@@ -1,3 +1,6 @@
+
+require 'open-uri'
+
 Appearance.destroy_all
 Game.destroy_all
 Player.destroy_all
@@ -65,4 +68,11 @@ games.each do |game|
   end
 end
 
+Player.all.each do |player|
+  player_url = "https://soccer.sportmonks.com/api/v2.0/players/#{player.api_id}?api_token=#{ENV['SPORT_MONKS']}"
 
+  player_json = JSON.parse(open(player_url).read)
+
+  player.image = player_json["data"]["image_path"]
+  player.save
+end
