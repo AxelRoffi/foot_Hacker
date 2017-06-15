@@ -10,59 +10,66 @@
       <li><%= vplayer.player.last_name unless vplayer.player.last_name.nil? %></li>
     </div>
   </ul>
- <form class="rating-widget">
-    <input type="checkbox" class="star-input" id="1"/>
-    <label class="star-input-label" for="1">1
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star orange"></i>
-    </label>
-    <input type="checkbox" class="star-input" id="2"/>
-    <label class="star-input-label" for="2">2
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star orange"></i>
-    </label>
-    <input type="checkbox" class="star-input" id="3"/>
-    <label class="star-input-label" for="3">3
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star orange"></i>
-    </label>
-    <input type="checkbox" class="star-input" id="4"/>
-    <label class="star-input-label" for="4">4
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star orange"></i>
-    </label>
-    <input type="checkbox" class="star-input" id="5"/>
-    <label class="star-input-label" for="5">5
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star orange"></i>
-    </label>
-    <input type="checkbox" class="star-input" id="6"/>
-    <label class="star-input-label" for="6">6
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star orange"></i>
-    </label>
-    <input type="checkbox" class="star-input" id="7"/>
-    <label class="star-input-label" for="7">7
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star orange"></i>
-    </label>
-    <input type="checkbox" class="star-input" id="8"/>
-    <label class="star-input-label" for="8">8
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star orange"></i>
-    </label>
-    <input type="checkbox" class="star-input" id="9"/>
-    <label class="star-input-label" for="9">9
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star orange"></i>
-    </label>
-    <input type="checkbox" class="star-input" id="10"/>
-    <label class="star-input-label" for="10">10
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star orange"></i>
-    </label>
-  </form>
-  <p> Current rating: 7.6 </p>
+  <% if vplayer.player.ratings.where(game_id: @game.id).blank? %>
+      <%= simple_form_for([@game, @rating], method: :post, html: { class: "rating-widget"}) do |f|  %>
+
+        <input type="hidden" name="player_id" value="<%= vplayer.player.id %>">
+        <input type="checkbox" name="stars[1]" class="star-input" id="1"/>
+        <label class="star-input-label" for="1">1
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star orange"></i>
+        </label>
+        <input type="checkbox" name="stars[2]" class="star-input" id="2"/>
+        <label class="star-input-label" for="2">2
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star orange"></i>
+        </label>
+        <input type="checkbox" name="stars[3]" class="star-input" id="3"/>
+        <label class="star-input-label" for="3">3
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star orange"></i>
+        </label>
+        <input type="checkbox" name="stars[4]" class="star-input" id="4"/>
+        <label class="star-input-label" for="4">4
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star orange"></i>
+        </label>
+        <input type="checkbox" name="stars[5]" class="star-input" id="5"/>
+        <label class="star-input-label" for="5">5
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star orange"></i>
+        </label>
+        <input type="checkbox" name="stars[6]" class="star-input" id="6"/>
+        <label class="star-input-label" for="6">6
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star orange"></i>
+        </label>
+        <input type="checkbox" name="stars[7]" class="star-input" id="7"/>
+        <label class="star-input-label" for="7">7
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star orange"></i>
+        </label>
+        <input type="checkbox" name="stars[8]" class="star-input" id="8"/>
+        <label class="star-input-label" for="8">8
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star orange"></i>
+        </label>
+        <input type="checkbox" name="stars[9]" class="star-input" id="9"/>
+        <label class="star-input-label" for="9">9
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star orange"></i>
+        </label>
+        <input type="checkbox" name="stars[10]" class="star-input" id="10"/>
+        <label class="star-input-label" for="10">10
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star orange"></i>
+        </label>
+        <%= f.submit %>
+      <% end %>
+    <% else %>
+      <p> Global rating: <%= vplayer.player.ratings.where(game_id: @game.id).inject(0){|sum,x| sum + x.score.to_i } / vplayer.player.ratings.where(game_id: @game.id).count %> </p>
+      <p> Your rating: <%= vplayer.player.ratings.where(game_id: @game.id, user_id: current_user.id)[0].score %> </p>
+    <% end %>
   <div class="items">
     <button class="contact" id="main-button">Last</button>
     <button class="contact" id="main-button">Next</button>
