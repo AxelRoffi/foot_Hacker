@@ -3,7 +3,7 @@
 <% @local_team_players.each do |lplayer| %>
     <li> <%= lplayer.player.last_name%> </li>
     <% if lplayer.player.image != nil %>
-      <li> <%= image_tag lplayer.player.image %> </li>
+       <%= image_tag lplayer.player.image %>
     <% end %>
 
     <% if lplayer.player.ratings.where(game_id: @game.id).blank?%>
