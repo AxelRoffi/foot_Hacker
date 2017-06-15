@@ -7,8 +7,10 @@
   resources :profiles, only: [:edit, :update, :new, :create, :show]
 
   resources :games, only: [:show] do
-    resources :rating, only: [:create, :destroy, :update]
+    resources :ratings, only: :create
   end
 
   get "games", to: "games#index"
 end
+
+
