@@ -1,0 +1,70 @@
+<div class="playercard text-center">
+  <div class="banner_2"></div>
+  <% if vplayer.player.image.present? %>
+
+  <div class="photo_1" style="background-image: url('<%= image_path vplayer.player.image %>');"></div>
+  <% end %>
+  <ul class="list-unstyled playertitle">
+    <div class="police_1">
+      <li><b> </b></li>
+      <li><%= vplayer.player.last_name unless vplayer.player.last_name.nil? %></li>
+    </div>
+  </ul>
+ <form class="rating-widget">
+    <input type="checkbox" class="star-input" id="1"/>
+    <label class="star-input-label" for="1">1
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star orange"></i>
+    </label>
+    <input type="checkbox" class="star-input" id="2"/>
+    <label class="star-input-label" for="2">2
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star orange"></i>
+    </label>
+    <input type="checkbox" class="star-input" id="3"/>
+    <label class="star-input-label" for="3">3
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star orange"></i>
+    </label>
+    <input type="checkbox" class="star-input" id="4"/>
+    <label class="star-input-label" for="4">4
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star orange"></i>
+    </label>
+    <input type="checkbox" class="star-input" id="5"/>
+    <label class="star-input-label" for="5">5
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star orange"></i>
+    </label>
+    <input type="checkbox" class="star-input" id="6"/>
+    <label class="star-input-label" for="6">6
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star orange"></i>
+    </label>
+    <input type="checkbox" class="star-input" id="7"/>
+    <label class="star-input-label" for="7">7
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star orange"></i>
+    </label>
+    <input type="checkbox" class="star-input" id="8"/>
+    <label class="star-input-label" for="8">8
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star orange"></i>
+    </label>
+    <input type="checkbox" class="star-input" id="9"/>
+    <label class="star-input-label" for="9">9
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star orange"></i>
+    </label>
+    <input type="checkbox" class="star-input" id="10"/>
+    <label class="star-input-label" for="10">10
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star orange"></i>
+    </label>
+  </form>
+  <p> Current rating: 7.6 </p>
+  <div class="items">
+    <button class="contact" id="main-button">Last</button>
+    <button class="contact" id="main-button">Next</button>
+  </div>
+</div>

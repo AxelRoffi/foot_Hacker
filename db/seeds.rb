@@ -65,4 +65,17 @@ games.each do |game|
   end
 end
 
+Player.all.each do |player|
+  player_url = "https://soccer.sportmonks.com/api/v2.0/players/#{player.api_id}?api_token=#{ENV['SPORT_MONKS']}"
+  p player_url
 
+  begin
+    player_json = JSON.parse(open(player_url).read)
+
+    player.image = player_json["data"]["image_path"]
+    player.save
+
+  rescue Exception => e
+    p "403 for #{player_url}"
+  end
+  end
