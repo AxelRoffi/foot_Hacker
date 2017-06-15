@@ -1,23 +1,16 @@
 class RatingsController < ApplicationController
 
-def index
-  @ratings = Rating.all
-end
-
-def new
-  @rating = Rating.new
-end
-
-
 def create
   @game = Game.find(params[:game_id])
   @rating = Rating.new(rating_params)
   @rating.game = @game
   @rating.user = current_user
+  byebug
   if @rating.save
     redirect_to game_path(@game)
   else
-    render :new
+    flash[:notice] = "An error occured"
+    redirect_to game_path(@game)
   end
 end
 
@@ -29,6 +22,6 @@ end
     # Never trust user data!
     params.require(:rating).permit(:score, :player_id )
   end
-
+end
 
 

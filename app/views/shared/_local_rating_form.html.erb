@@ -1,5 +1,0 @@
-<%= simple_form_for([ @game, @rating ]) do |form| %>
-  <%= form.input :score, collection: 0..10 %>
-  <%= f.hidden_field :player_id, value: lplayer %>
-  <%= form.button :submit %>
-<% end %>

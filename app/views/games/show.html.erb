@@ -5,7 +5,17 @@
     <% if lplayer.player.image != nil %>
       <li> <%= image_tag lplayer.player.image %> </li>
     <% end %>
-    <%= render 'shared/local_ratings_form', game: @game, rating: @rating %>
+
+    <% if lplayer.player.ratings.where(game_id: @game.id).blank?%>
+      <%= simple_form_for([ @game, @rating ]) do |form| %>
+        <%= form.input :score, collection: 0..10 %>
+        <%= form.hidden_field :player_id, value: lplayer.player.id %>
+        <%= form.button :submit %>
+      <% end %>
+    <% else %>
+      <%= lplayer.player.ratings.where(game_id: @game.id)[0].score  %>
+    <% end %>
+
  <% end %>
 </ul>
 
@@ -15,7 +25,12 @@
     <% if vplayer.player.image != nil %>
       <%= image_tag vplayer.player.image %>
     <% end %>
-    <%= render 'shared/visitor_ratings_form', game: @game, rating: @rating %>
+    <%= simple_form_for([ @game, @rating ]) do |form| %>
+      <%= form.input :score, collection: 0..10 %>
+      <%= form.hidden_field :player_id, value: vplayer.player.id %>
+      <%= form.button :submit %>
+    <% end %>
+
   <% end %>
 
 
