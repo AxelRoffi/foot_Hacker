@@ -8,7 +8,7 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id].to_i)
+    @game = Game.find(params[:id])
 
     @local_team_players = @game.appearances.select {|x| x.team_id == @game.local_team_id}
     @visitor_team_players = @game.appearances.select {|x| x.team_id == @game.visitor_team_id}

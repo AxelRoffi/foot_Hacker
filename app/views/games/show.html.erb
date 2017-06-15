@@ -1,16 +1,25 @@
 
 <ul>
 <% @local_team_players.each do |lplayer| %>
-     <li> <%= lplayer.player.last_name%> </li>
-     <li> <%= image_tag lplayer.player.image %> </li>
+    <li> <%= lplayer.player.last_name%> </li>
+    <% if lplayer.player.image != nil %>
+      <li> <%= image_tag lplayer.player.image %> </li>
+    <% end %>
+    <%= render 'shared/local_ratings_form', game: @game, rating: @rating %>
  <% end %>
 </ul>
 
 
  <% @visitor_team_players.each do |vplayer| %>
-       <%= vplayer.player.last_name %>
+    <%= vplayer.player.last_name %>
+    <% if vplayer.player.image != nil %>
       <%= image_tag vplayer.player.image %>
+    <% end %>
+    <%= render 'shared/visitor_ratings_form', game: @game, rating: @rating %>
   <% end %>
+
+
+
 
 
 
