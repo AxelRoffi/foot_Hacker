@@ -1,3 +1,6 @@
+
+require 'open-uri'
+
 Appearance.destroy_all
 Game.destroy_all
 Player.destroy_all
@@ -67,6 +70,7 @@ end
 
 Player.all.each do |player|
   player_url = "https://soccer.sportmonks.com/api/v2.0/players/#{player.api_id}?api_token=#{ENV['SPORT_MONKS']}"
+
   p player_url
 
   begin
@@ -79,3 +83,6 @@ Player.all.each do |player|
     p "403 for #{player_url}"
   end
   end
+
+end
+

@@ -1,4 +1,39 @@
 
+<ul>
+<% @local_team_players.each do |lplayer| %>
+    <li> <%= lplayer.player.last_name%> </li>
+    <% if lplayer.player.image != nil %>
+      <li> <%= image_tag lplayer.player.image %> </li>
+    <% end %>
+
+    <% if lplayer.player.ratings.where(game_id: @game.id).blank?%>
+      <%= simple_form_for([ @game, @rating ]) do |form| %>
+        <%= form.input :score, collection: 0..10 %>
+        <%= form.hidden_field :player_id, value: lplayer.player.id %>
+        <%= form.button :submit %>
+      <% end %>
+    <% else %>
+      <%= lplayer.player.ratings.where(game_id: @game.id)[0].score  %>
+    <% end %>
+
+ <% end %>
+</ul>
+
+
+ <% @visitor_team_players.each do |vplayer| %>
+    <%= vplayer.player.last_name %>
+    <% if vplayer.player.image != nil %>
+      <%= image_tag vplayer.player.image %>
+    <% end %>
+    <%= simple_form_for([ @game, @rating ]) do |form| %>
+      <%= form.input :score, collection: 0..10 %>
+      <%= form.hidden_field :player_id, value: vplayer.player.id %>
+      <%= form.button :submit %>
+    <% end %>
+
+  <% end %>
+
+
 <div class="container">
   <div class="row text-center">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
