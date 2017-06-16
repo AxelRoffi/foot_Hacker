@@ -84,5 +84,4 @@ Player.all.each do |player|
   end
   end
 
-end
 
