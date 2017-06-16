@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_one :profile
   has_one :team, through: :profile
+  has_many :ratings
 
 
 
