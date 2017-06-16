@@ -2,16 +2,23 @@ class RatingsController < ApplicationController
 
 def create
   @game = Game.find(params[:game_id])
-  @rating = Rating.new(rating_params)
+  score = params[:stars].keys.map(&:to_i).max
+  player = Player.find params[:player_id]
+  @rating = Rating.new
   @rating.game = @game
   @rating.user = current_user
+  @rating.player = player
+  @rating.score = score
+
   if @rating.save
+    flash[:notice] = "Yeay"
     redirect_to game_path(@game)
   else
     flash[:notice] = "An error occured"
-    redirect_to game_path(@game)
+        redirect_to game_path(@game)
+    end
   end
-end
+
 
   private
 

@@ -146,7 +146,7 @@ a {
     margin-top: -154px;
     width:100%;
     height:150px;
-    background-image: url("juv.jpg");
+    background-image: url("Ligue1.jpg");
     background-size: cover;
     border-bottom: solid 1px lightgrey;
 
@@ -166,9 +166,7 @@ a {
     border-radius: 50%;
     height: 150px;
     width: 150px;
-    background-color: white;
     margin: 0 auto;
-    background-image: url("paulo.jpg");
     background-size: cover;
     background-position: 50% 50%;
     top:75px;
@@ -277,6 +275,162 @@ button.contact:focus {
 
 .social-media-banner a i:hover {
     color:#979da8;
+}
+.carousel-control        { width:  4%; }
+.carousel-control.left,.carousel-control.right {margin-left:15px;background-image:none;}
+@media (max-width: 767px) {
+  .carousel-inner .active.left { left: -100%; }
+  .carousel-inner .next        { left:  100%; }
+  .carousel-inner .prev    { left: -100%; }
+  .active > div { display:none; }
+  .active > div:first-child { display:block; }
+
+}
+@media (min-width: 767px) and (max-width: 992px ) {
+  .carousel-inner .active.left { left: -50%; }
+  .carousel-inner .next        { left:  50%; }
+  .carousel-inner .prev    { left: -50%; }
+  .active > div { display:none; }
+  .active > div:first-child { display:block; }
+  .active > div:first-child + div { display:block; }
+}
+@media (min-width: 992px ) {
+  .carousel-inner .active.left { left: -25%; }
+  .carousel-inner .next        { left:  25%; }
+  .carousel-inner .prev    { left: -25%; }
+}
+
+
+
+
+
+
+html,
+body {
+  font-family:'Open Sans', sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:'Open Sans', sans-serif;
+}
+h3, h4, h5 {
+    font-family:'Raleway', sans-serif;
+    font-weight: 350;
+    margin-bottom: 30px;
+}
+
+p {
+  font-size: 18px;
+}
+
+a {
+  color: #8ebebc;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+
+.header {
+  display: table;
+  height: 100%;
+  width: 100%;
+  padding-top: 60px;
+  background: #fff;
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+#myCarousel {
+  width:100%;
+  height:100%;
+}
+.carousel, .item, .active {
+  height:100%;
+}
+.carousel-inner {
+  height:100%;
+}
+.carousel {
+  margin-bottom: 0;
+}
+
+.img-thumbnail {
+    padding: 10px;
+}
+.post-box, .post-box2 , .post-box3 {
+    margin: 10px 0 10px 0;
+}
+
+
+/**** Transitions for Masonry ****/
+
+.masonry {
+  -webkit-transition-duration: 0.4s;
+     -moz-transition-duration: 0.4s;
+      -ms-transition-duration: 0.4s;
+       -o-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+
+@media (min-width: 768px) {
+
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left:  15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left:  0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+}
+
+
+.flexy {
+  display: flex;
+  justify-content: space-around;
 }
 
 
